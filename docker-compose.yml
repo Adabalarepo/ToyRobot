@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  # Spring Boot application
+  app:
+    image: ${DOCKER_USERNAME}/toyrobot-api:latest  # This points to your built Docker image
+    container_name: toyrobot-api
+    ports:
+      - "8080:8080"  # Expose port 8080
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod  # Optional: Set Spring profile to prod
+    networks:
+      - toyrobot-network
+    depends_on:
+      - db  # Ensure database service is up before the app starts (uncomment this when db is used)
+
+  # PostgreSQL database (COMMENTED OUT)
+  # db:
+  #   image: postgres:13  # Use official PostgreSQL image
+  #   container_name: toyrobot-db
+  #   environment:
+  #     POSTGRES_USER: ${DB_USER}  # Set your DB username
+  #     POSTGRES_PASSWORD: ${DB_PASSWORD}  # Set your DB password
+  #     POSTGRES_DB: toyrobot_db  # Set your DB name
+  #   volumes:
+  #     - toyrobot-db-data:/var/lib/postgresql/data  # Persistent storage
+  #   networks:
+  #     - toyrobot-network
+
+  # Redis (optional, for caching)
+  redis:
+    image: redis:latest
+    container_name: toyrobot-redis
+    networks:
+      - toyrobot-network
+
+networks:
+  toyrobot-network:
+    driver: bridge  # Use a bridge network for the containers
+
+volumes:
+  toyrobot-db-data:  # Persistent volume for PostgreSQL

@@ -1,0 +1,12 @@
+com\example\toyrobot\model\PlaceRequest$Direction.class
+com\example\toyrobot\controller\RobotController.class
+com\example\toyrobot\model\PlaceRequest.class
+com\example\toyrobot\model\Position.class
+com\example\toyrobot\enums\Direction$1.class
+com\example\toyrobot\model\Robot.class
+com\example\toyrobot\model\RobotResponse.class
+com\example\toyrobot\service\RobotService.class
+com\example\toyrobot\model\Position$1.class
+com\example\toyrobot\enums\Direction.class
+com\example\toyrobot\ToyRobotApplication.class
+com\example\toyrobot\exception\GlobalExceptionHandler.class
