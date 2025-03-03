@@ -102,10 +102,10 @@ POST /api/robot/place
 {
   "x": 0,
   "y": 0,
-  "direction": "NORTH"
+  "facing": "NORTH"
 }
 ```
-
+### NOTE: Please make sure x and y corndiates are Lower case NOT Upper
 ### Move the Robot
 
 ```bash
@@ -126,7 +126,7 @@ GET /api/robot/report
 {
   "x": 0,
   "y": 1,
-  "direction": "NORTH"
+  "facing": "NORTH"
 }
 ```
 
